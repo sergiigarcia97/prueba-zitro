@@ -1,0 +1,22 @@
+
+
+
+He usado una base de datos en memoria H2 para realizar la prueba, se generan datos al iniciar la aplicación. Para ver los datos en BBDD (localhost:8080/h2-console sa-password)
+Para acceder a las entidades he usado repositorios JPA y la capa de servicios para gestionar los datos.
+No he conseguido entender porqué sale un error en Game.GameConfigurations - could not initialize proxy - no Session, no sé si he planteado mal alguna relación o no lo he mapeado bien, espero conseguir resolverlo aunque sea fuera de plazo
+
+Entidades:
+    - Game : contiene el tipo de juego y las posibles configuraciones (en este caso -> easy/medium/hard)
+    - GameConfiguration : contiene los valores establecidos por cada "dificultad" y la duración del juego
+    - GameType : enumeración de los distintos juegos
+    - GameSession : relaciona qué jugador está en X juego (TODO: problemas fetch type)
+    - GameData : contiene las transacciones realizadas en una partida y la duración de la misma (TODO: problemas fetch type)
+
+    - Provider : actualmente solo recibe el nombre del proveedor del usuario (bwin,pokerstars)
+    - Player : contiene el nombre i la cantidad de "crédito" que tiene el usuario, también está pensado para que solo *
+               * pueda jugar en un casino al mismo tiempo
+
+CasinoLoader:
+    - Clase creada para generar datos mock (TODO: implementación transacciones (GameData))
+
+
